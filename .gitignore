@@ -1,0 +1,5 @@
+env
+config/env.yaml
+*.code-workspace
+*.vscode
+__pycache__
