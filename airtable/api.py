@@ -1,5 +1,5 @@
 """
-Name: montytable.py
+Name: api.py
 Description: Implementation of the Airtable API
 
 Author: Maxime Daraiche <max@techstew.dev>
@@ -10,7 +10,6 @@ from typing import Optional
 import requests
 from requests import Response
 
-# pylint: disable=line-too-long
 
 class AirtableAPI:
     """
