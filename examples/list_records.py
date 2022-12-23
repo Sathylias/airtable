@@ -15,13 +15,12 @@ from airtable.config.utils import load_yaml
 # pylint: disable=missing-function-docstring
 def main():
 
-    fields = ["Name", "Status"]
-
     config = load_yaml("env.yaml")
     client = AirtableAPI(token=config["airtable_api_key"], timeout=60)
 
-    fields = ["Name", "Status"]
-    response = client.list_records(config["airtable_base"], "todo_projects", fields)
+    response = client.list_records(
+        config["airtable_base"], "todo_projects", ["Name", "Status"]
+    )
 
     print(response.json())
 
