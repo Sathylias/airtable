@@ -5,19 +5,20 @@
 Name: list_records.py
 Description: Example of retrieving records using Airtable API
 
-Author: Maxime Daraiche <maxime.daraiche@accenture.com>
+Author: Maxime Daraiche <max@techstew.dev>
 
 """
 
 from airtable.api import AirtableAPI
-from config.config import read_yaml
+from airtable.config.utils import load_yaml
 
 # pylint: disable=missing-function-docstring
 def main():
 
-    config = read_yaml("config/env.yaml")
-    api_key = config["airtable_api_key"]
-    client = AirtableAPI(token=api_key, timeout=60)
+    fields = ["Name", "Status"]
+
+    config = load_yaml("env.yaml")
+    client = AirtableAPI(token=config["airtable_api_key"], timeout=60)
 
     fields = ["Name", "Status"]
     response = client.list_records(config["airtable_base"], "todo_projects", fields)
